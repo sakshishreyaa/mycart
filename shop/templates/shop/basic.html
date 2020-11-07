@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en" xmlns="">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>{% block title%} {% endblock %}</title>
+     <style>
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+    padding-top: 60px;
+  transition: 0.5s;
+}
+
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+       {% block css %} {% endblock %}
+  </style>
+  </head>
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+    <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+         <li class="nav-item">
+
+        <a class="nav-link" href="#"><span onclick="openNav()">
+          <svg class="bi bi-list-ul" width="1em" height="1.5em" viewBox="0 0 8 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+</svg>
+        </span><div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/shop/about">About</a>
+  <a href="/shop/tracker">Track Order</a>
+  <a href="/shop/contact">Feedback</a>
+  <a href="/logout">Log Out</a>
+</div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/shop"><svg class="bi bi-house-door-fill" width="1.5em" height="1.3em" viewBox="0 2 16 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
+  <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+</svg><span class="sr-only"></span></a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/shop/accessories">Accessories</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/shop/clothing">Clothing</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/shop/footwear">Footwear</a>
+
+
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0" method="get" action='/shop/search/' id="search">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
+      <button class="btn btn-outline-success my-2 my-sm-0" onfocus="popover('show')"type="submit" ><svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+  <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+
+</svg></button>
+    </form>
+
+
+    <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.">
+
+<svg class="bi bi-cart4" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="Black" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+</svg><span id="cart">0</span></svg>
+</button>
+
+  </div>
+</nav>
+
+  {% block body %}
+
+
+ {% endblock %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.body.style.backgroundColor = "white";
+ }</script>
+
+ {% block js2 %}
+     <script>
+
+
+current= localStorage.getItem('currentUser') ;
+ulist= JSON.parse(localStorage.getItem('ulist')) ;
+if (ulist[current]==0){
+//if(localStorage.getItem('cart') == undefined) {
+    var cart = {};
+
+}
+else {
+cart = JSON.parse(localStorage.getItem('cart'));
+    updateCart(cart);
+}
+updateCart(cart);
+$('#popcart').popover();
+updatePopover(cart);
+function updatePopover(cart) {
+    var popStr = "";
+    popStr = popStr + "<h5> Cart for your items in my shopping cart </h5><div class='mx-2 my-2'>";
+    var i = 1;
+    for (var item in cart) {
+        popStr = popStr + "<b>" + i + "</b>. ";
+        popStr = popStr + cart[item][1].slice(0, 19) + "... Qty: " + cart[item][0] + '<br>';
+        i = i + 1;
+    }
+    popStr = popStr + "</div> <a href='/shop/checkout'><button class='btn btn-primary' id ='checkout'>View cart</button></a> <button class='btn btn-primary' onclick='clearCart()' id ='clearCart'>Clear Cart</button>     "
+
+    document.getElementById('popcart').setAttribute('data-content', popStr);
+
+}
+
+
+function clearCart() {
+
+
+    localStorage.removeItem('cart');
+
+    delete ulist[current];
+    localStorage.setItem('ulist', JSON.stringify(ulist));
+    cart = {};
+    updateCart(cart);
+    popover('hide')
+}
+function updateCart(cart) {
+    var sum = 0;
+       for (var item in cart) {
+        if (cart[item][0]==0){
+
+            delete cart[item];}
+           }
+
+    for (var item in cart) {
+        sum = sum + cart[item][0];    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = sum;
+    updatePopover(cart);
+
+
+    if (ulist[current] == undefined) {
+        ulist[current] = [0];
+        }
+    for (var key in ulist)
+    {
+    if (key==current)
+    {
+    ulist[key]=cart;}
+    }
+localStorage.setItem('ulist', JSON.stringify(ulist));
+}
+
+</script>
+{% endblock %}
+{% block js %}
+ {%endblock%}
+
+  </body>
+</html>

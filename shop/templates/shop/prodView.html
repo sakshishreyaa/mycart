@@ -1,0 +1,82 @@
+{% extends 'shop/basic.html' %}
+
+{% block title%} {{product.product_name}} - My Cart{% endblock %}
+{% block body %}
+<div class="container my-4">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="row">
+        <img src="/media/{{product.image}}" width="233px" height="385px">
+    </div>
+        <div class="row">
+            <span id="divpr{{i.product_id}}" class="divpr">
+            <button id="pr{{product.product_id}}" class="btn btn-primary mx-3 buy">Buy Now</button>
+
+            <button id="pr{{product.product_id}}" class="btn btn-primary cart">Add To Cart</button>
+            </span>
+        </div>
+
+    </div>
+
+    <div class="col-md-8">
+        <h5 id="namepr{{product.product_id}}">{{product.product_name}}</h5>
+        <p><b>Rs.<span id="pricepr{{product.product_id}}">{{product.price}}</span></b></p>
+        <p>{{product.desc}}</p>
+
+
+    </div>
+    </div>
+
+
+</div>
+
+
+
+
+{% endblock %}
+
+
+
+
+{% block js %}
+<script>
+cart=JSON.parse(localStorage.getItem('cart'))
+
+  $('.divpr').on('click', 'button.cart', function(){
+
+    var idstr = this.id.toString();
+
+    if (cart[idstr] != undefined) {
+        qty = cart[idstr][0] + 1;
+        price=cart[idstr][2]
+        cart[idstr] = [qty,name,price];
+
+    } else {
+        qty = 1;
+        name = document.getElementById('name' + idstr).innerHTML;
+        price = document.getElementById('price' + idstr).innerHTML;
+        cart[idstr] = [qty,name,price];
+
+    }
+    updateCart(cart);
+});
+ $('.divpr').on('click', 'button.buy', function(){
+    var idstr = this.id.toString();
+    if (cart[idstr] != undefined) {
+        qty = cart[idstr][0] + 1;
+        price=cart[idstr][2]
+        cart[idstr] = [qty,name,price];
+  }
+  else {
+        qty = 1;
+        name = document.getElementById('name' + idstr).innerHTML;
+        price = document.getElementById('price' + idstr).innerHTML;
+        cart[idstr] = [qty,name,price];
+
+    }
+    updateCart(cart);
+    document.location = "/shop/checkout";
+});
+
+</script>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'shop/basic.html' %}
+{% block body %}
+
+<div class="container my-4">
+    {%for i in prod%}
+    <div class="row">
+
+        <div class="col-md-4">
+
+
+
+                <p><img src=" \media/{{i.image}}" height="200" width="200"></p>
+
+
+
+                <span id="divpr{{i.product_id}}" class="divpr">
+
+                    <button id="pr{{i.product_id}}" class="btn btn-primary cart">Add To Cart</button>
+                </span>
+
+        </div>
+
+    <div class="col-md-8 align-self-center">
+
+
+         <p ><b><span id ="namepr{{i.product_id}}"> {{i.product_name}}</span></b></p>
+            <p><b>Rs:<span id ="pricepr{{i.product_id}}">{{i.price}}</span></b></p>
+        <p> {{i.desc}}</p>
+</div>
+
+    {% endfor %}
+</div>
+
+
+{% endblock %}
+{% block js%}<script>
+  $('.divpr').on('click', 'button.cart', function(){
+    var idstr = this.id.toString();
+    if (cart[idstr] != undefined) {
+        qty = cart[idstr][0] + 1;
+        price=cart[idstr][2]
+        cart[idstr] = [qty,name,price];
+
+    } else {
+        qty = 1;
+        name = document.getElementById('name' + idstr).innerHTML;
+        price = document.getElementById('price' + idstr).innerHTML;
+        cart[idstr] = [qty,name,price];
+
+    }
+    updateCart(cart);
+});
+</script>
+{% endblock %}
