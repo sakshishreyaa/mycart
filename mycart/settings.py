@@ -25,7 +25,7 @@ SECRET_KEY = 'ie@3pm0rwxm02e&y9ni84!x@cn4c1e@sxnmkfn%xh2-mcsuk(q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -134,3 +134,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Managing media
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
