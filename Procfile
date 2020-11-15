@@ -1,1 +1,1 @@
-web: gunicorn mycart.wsgi --log-file -
+web: gunicorn plaindjango.wsgi:application --log-file -
